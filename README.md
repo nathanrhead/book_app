@@ -31,11 +31,11 @@ We've built this app to fulfill the requirements of Code Fellows 301, labs 11 th
 
 ## Time Estimate and Feature Information
 
-    Number and name of feature: #1 Display Images
+    Number and name of feature: #1 Directory and File Setup
     Estimate of time needed to complete: 1 hour
-    Start time: 3:00 p.m.
-    Finish time: 4:30 p.m.
-    Actual time needed to complete: 1.5 hours
+    Start time: 12:00 p.m.
+    Finish time: 
+    Actual time needed to complete: 
 
 ---
 
