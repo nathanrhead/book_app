@@ -40,10 +40,16 @@ We've built this app to fulfill the requirements of Code Fellows 301, labs 11 th
     Number and name of feature: #2 Search the Google Books API
     Estimate of time needed to complete: 1 hour
     Start time: 4:45 p.m.
-    Finish time: 5:45 p.m.
-    Actual time needed to complete: 
+    Finish time: 5:35 p.m.
+    Actual time needed to complete: 50 minutes
 
 ---
+
+Number and name of feature: #3 Client Browse 10 Results
+    Estimate of time needed to complete: 1 hour
+    Start time: 5:40 p.m.
+    Finish time: 
+    Actual time needed to complete: 
 
 ## Reflections
 

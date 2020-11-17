@@ -26,6 +26,7 @@ function renderHomePage(req, res) {
 
 function showForm(req, res) {
   res.render('pages/searches/new')
+    // .catch(err => console.log(err))
 }
 
 function createSearch(req, res) {
@@ -36,7 +37,7 @@ function createSearch(req, res) {
 
   superagent.get(url)
     .then(data => {
-      // console.log(data.body.item);
+      // console.log(data.body.items);
       return data.body.items.map(book => {
         return new Book(book.volumeInfo);
       });
@@ -49,8 +50,20 @@ function createSearch(req, res) {
 }
 
 function Book(info) {
+
+  // console.log(info.imageLinks.smallThumbnail.match(/^http:\/\//g));
+  if(info.imageLinks.smallThumbnail.match(/^http:\/\//g)){
+    info.imageLinks.smallThumbnail = info.imageLinks.smallThumbnail.replace('http://', 'https://')
+  }
+  // console.log(info.imageLinks.smallThumbnail)
+  // else {
+  //   info.imageLinks.thumbnail = `https://i.imgur.com/J5LVHEL.jpg`;
+  // }
   this.title = info.title || 'No title is available.';
-  this.authors = info.authors || 'No author is avaiable.';
+  this.authors = info.authors || 'No author is available.';
+  this.description = info.description || 'No description is available.';
+  this.image = info.imageLinks.smallThumbnail || 'https://i.imgur.com/J5LVHEL.jpg';
+  // .replace(/^http:\/\//i, 'https://')
 }
 
 app.listen(PORT, () => {
