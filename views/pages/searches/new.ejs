@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Search</title>
+    <link rel="stylesheet" href="../../styles/base.css">
+  </head>
+  <body>
+    <header>
+      <h1>Book Search or Something</h1>
+    </header>
+    <main>
+      <form action="/searches" method="post">
+        <input type="text" name="search" placeholder="Enter an author or a title" required>
+        <fieldset>
+          <label for="title">Title:</label>
+          <input type="radio" name="search" value="title">
+        </fieldset>
+        <fieldset>
+          <label for="author">Author:</label>
+          <input type="radio" name="search" value="author">
+        </fieldset>
+        <button type="submit">Search the Google Books API</button>
+      </form>
+    </main>
+    <footer></footer>
+  </body>
+</html>
