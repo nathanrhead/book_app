@@ -16,6 +16,9 @@ app.get('/searches/new', showForm);
 app.get('/hello', (req, res) => {
   res.send('goodbye cruel world');
 })
+app.get('*', (req, res) => {
+  res.render('pages/error', { error: new Error('Page not found.') } )
+})
 
 app.post('/searches', createSearch);
 
@@ -50,20 +53,20 @@ function createSearch(req, res) {
 }
 
 function Book(info) {
-
+  console.log(info[0]);
   // console.log(info.imageLinks.smallThumbnail.match(/^http:\/\//g));
-  if(info.imageLinks.smallThumbnail.match(/^http:\/\//g)){
-    info.imageLinks.smallThumbnail = info.imageLinks.smallThumbnail.replace('http://', 'https://')
+  if(info.imageLinks) {
+    if(info.imageLinks.smallThumbnail.match(/^http:\/\//g)){
+      info.imageLinks.smallThumbnail = info.imageLinks.smallThumbnail.replace('http://', 'https://');
+      this.image = info.imageLinks.smallThumbnail;
+    } else {
+      this.image = 'https://i.imgur.com/J5LVHEL.jpg';
+    }
   }
-  // console.log(info.imageLinks.smallThumbnail)
-  // else {
-  //   info.imageLinks.thumbnail = `https://i.imgur.com/J5LVHEL.jpg`;
-  // }
   this.title = info.title || 'No title is available.';
   this.authors = info.authors || 'No author is available.';
   this.description = info.description || 'No description is available.';
-  this.image = info.imageLinks.smallThumbnail || 'https://i.imgur.com/J5LVHEL.jpg';
-  // .replace(/^http:\/\//i, 'https://')
+  // this.image = info.imageLinks.smallThumbnail || 'https://i.imgur.com/J5LVHEL.jpg';
 }
 
 app.listen(PORT, () => {
