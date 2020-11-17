@@ -48,8 +48,22 @@ We've built this app to fulfill the requirements of Code Fellows 301, labs 11 th
 Number and name of feature: #3 Client Browse 10 Results
     Estimate of time needed to complete: 1 hour
     Start time: 5:40 p.m.
+    Finish time: 8:40 p.m.
+    Actual time needed to complete: 3 hours
+
+
+Number and name of feature: #4 Error Messaging
+    Estimate of time needed to complete: 1 hour
+    Start time: 8:50 p.m.
+    Finish time: 9:10 p.m.
+    Actual time needed to complete: 20 minutes
+
+Number and name of feature: #5 UI
+    Estimate of time needed to complete: 
+    Start time: 
     Finish time: 
     Actual time needed to complete: 
+
 
 ## Reflections
 
