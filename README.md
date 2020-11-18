@@ -29,7 +29,7 @@ We've built this app to fulfill the requirements of Code Fellows 301, labs 11 th
 
 ## Time Estimate and Feature Information
 
-    Number and name of feature: #1 Directory and File Setup
+    Number and name of feature: Lab 11 Feature #1 Directory and File Setup
     Estimate of time needed to complete: 1 hour
     Start time: 3:00 p.m.
     Finish time: 4:30 p.m.
@@ -37,7 +37,7 @@ We've built this app to fulfill the requirements of Code Fellows 301, labs 11 th
 
 ---
 
-    Number and name of feature: #2 Search the Google Books API
+    Number and name of feature: Lab 11 Feature #2 Search the Google Books API
     Estimate of time needed to complete: 1 hour
     Start time: 4:45 p.m.
     Finish time: 5:35 p.m.
@@ -45,25 +45,45 @@ We've built this app to fulfill the requirements of Code Fellows 301, labs 11 th
 
 ---
 
-Number and name of feature: #3 Client Browse 10 Results
+Number and name of feature: Lab 11 Feature #3 Client Browse 10 Results
     Estimate of time needed to complete: 1 hour
     Start time: 5:40 p.m.
     Finish time: 8:40 p.m.
     Actual time needed to complete: 3 hours
 
+---
 
-Number and name of feature: #4 Error Messaging
+Number and name of feature: Lab 11 Feature #4 Error Messaging
     Estimate of time needed to complete: 1 hour
     Start time: 8:50 p.m.
     Finish time: 9:10 p.m.
     Actual time needed to complete: 20 minutes
 
-Number and name of feature: #5 UI
+---
+
+Number and name of feature: Lab 11 Feature #5 UI
     Estimate of time needed to complete: 
     Start time: 
     Finish time: 
     Actual time needed to complete: 
 
+---
+
+Number and name of feature: Lab 11 Feature #6 Render home
+    Estimate of time needed to complete: 
+    Start time: 
+    Finish time: 
+    Actual time needed to complete: 
+
+---
+
+Number and name of feature: Lab 12 Feature #1 Display Books on Homepage
+    Estimate of time needed to complete: 1.5 hrs | 90 mins
+    Start time: 2:35 p.m.
+    Finish time: 
+    Actual time needed to complete: 
+
+--- 
 
 ## Reflections
 
