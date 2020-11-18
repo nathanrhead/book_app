@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Results</title>
+
+  </head>
+  <body>
+    <main>
+      <ul>
+        
+        <% searchResults.forEach(listItems => { %>
+          <li class="list-item" data-id="<%= listItems.id %>">
+            <img src="<%= listItems.image %>" alt="book jacket">
+            <h4>Title <%= listItems.title %></h4>
+            <p>Author <%= listItems.authors %></p>
+            <p>Description <%= listItems.description %></p>
+          </li>
+            <form action="/add-book" method="post">
+                <input type="hidden" name="title" value="<%= listItems.title %>">
+                <input type="hidden" name="authors" value="<%= listItems.authors %>">
+                <input type="hidden" name="description" value="<%= listItems.description %>">
+                <input type="hidden" name="image" value="<%= listItems.image %>">
+              <button type="submit">Add to bookshelf.</button>
+            </form>
+        <% }) %>
+      </ul>
+    </main>
+  </body>
+</html>
