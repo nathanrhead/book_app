@@ -70,20 +70,45 @@ Number and name of feature: Lab 11 Feature #5 UI
 ---
 
 Number and name of feature: Lab 11 Feature #6 Render home
-    Estimate of time needed to complete: 
-    Start time: 
-    Finish time: 
+    Estimate of time needed to complete: N/A
+    Start time: N/A
+    Finish time: N/A
+    Actual time needed to complete: N/A
+
+---
+
+Number and name of feature: Lab 12 Feature #1 Display Books on the Homepage
+    Estimate of time needed to complete: 1.5 hrs | 90 mins
+    Start time: 2:35 p.m.
+    Finish time: 5:35 p.m.
+    Actual time needed to complete: 3 hours
+
+---
+
+Number and name of feature: Lab 12 Feature #2 View the Details of a Single Book
+    Estimate of time needed to complete: 1.5 hrs | 90 mins
+    Start time: 6:30 p.m.
+    Finish time: 8:30 p.m.
+    Actual time needed to complete: 2 hours
+
+---
+
+Number and name of feature: Lab 12 Feature #3 Add New Books to the Bookshelf
+    Estimate of time needed to complete: 1 hour
+    Start time: 8:30 p.m.
+    Finish time: 10:30 p.m.
+    Actual time needed to complete: 2 hours
+
+---
+
+Number and name of feature: Lab 12 Feature #4 Refactor Callbacks and Partials
+    Estimate of time needed to complete: 1 hour
+    Start time: 10:30 p.m.
+    Finish time: 11:30 p.m.
     Actual time needed to complete: 
 
 ---
 
-Number and name of feature: Lab 12 Feature #1 Display Books on Homepage
-    Estimate of time needed to complete: 1.5 hrs | 90 mins
-    Start time: 2:35 p.m.
-    Finish time: 
-    Actual time needed to complete: 
-
---- 
 
 ## Reflections
 

@@ -5,5 +5,7 @@ CREATE TABLE seed (
   title VARCHAR(256),
   authors VARCHAR(256),
   description TEXT,
-  image TEXT
+  image TEXT,
+  isbn VARCHAR(256),
+  category VARCHAR(256)
 );
