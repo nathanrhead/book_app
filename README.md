@@ -109,6 +109,14 @@ Number and name of feature: Lab 12 Feature #4 Refactor Callbacks and Partials
 
 ---
 
+Number and name of feature: Lab 13 Feature #1 Update a Book's Details
+    Estimate of time needed to complete: 1 hour
+    Start time: 
+    Finish time: 
+    Actual time needed to complete: 
+
+---
+
 
 ## Reflections
 
