@@ -23,6 +23,11 @@ app.get('/view-details/:listItems_id', bookDetails);
 
 app.post('/searches', createSearch);
 
+app.get('*', (req, res) => {
+  res.render('pages/error', { error: new Error('Page not found.') } )
+}) //set it on fire
+
+
 function bookDetails(req, res) {
   let SQL = 'SELECT * FROM seed WHERE id=$1';
   let values = [req.params.listItems_id];
@@ -103,11 +108,6 @@ function Book(info) {
     this.isbn = 'No ISBN is available.';
   }
 }
-
-app.get('*', (req, res) => {
-  res.render('pages/error', { error: new Error('Page not found.') } )
-}) //set it on fire
-
 
 client.connect()
   .then(() => {
