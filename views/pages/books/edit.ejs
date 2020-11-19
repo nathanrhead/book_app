@@ -1,0 +1,9 @@
+<section>
+  <form action="/update/<%= oneBook.id %>?_method=PUT" method="post">
+    <!-- <input type="text" name="title" value="<%= oneBook.title %>">
+    <input type="text" name="authors" value="<%= oneBook.authors %>"> -->
+    <textarea name="description"><%= oneBook.description %></textarea>
+    <input type="text" name="category" value="<%= oneBook.category %>">
+    <button type="submit">Update</button>
+  </form>
+</section>

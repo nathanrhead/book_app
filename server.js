@@ -5,12 +5,14 @@ const app = express();
 const superagent = require('superagent');
 const dotenv = require('dotenv');
 const pg = require('pg');
+const methodOverride = require('method-override');
 
 dotenv.config();
 
 const PORT = process.env.PORT || 3333;
 const client = new pg.Client(process.env.DATABASE_URL);
 
+app.use(methodOverride('_method'));
 app.use(express.static('./public'));
 app.use(express.urlencoded({ extended: true }));
 
@@ -18,15 +20,27 @@ app.set('view engine', 'ejs');
 
 app.get('/', renderHomePage);
 app.get('/searches/new', showForm);
-app.post('/add-book', saveBook);
 app.get('/view-details/:listItems_id', bookDetails);
+app.put('/update/:listItems_id', updateBook);
 
+app.post('/add-book', saveBook);
 app.post('/searches', createSearch);
+// app.post('')
 
 app.get('*', (req, res) => {
   res.render('pages/error', { error: new Error('Page not found.') } )
 }) //set it on fire
 
+function updateBook(req, res) {
+  let { description, category } = req.body;
+  console.log(description, category);
+  let SQL = 'UPDATE seed SET description=$1, category=$2 WHERE id=$3';
+  let values = [description, category, req.params.listItems_id];
+
+  client.query(SQL, values)
+    .then(res.redirect(`/view-details/${req.params.listItems_id}`))
+    .catch(err => console.error(err));
+}
 
 function bookDetails(req, res) {
   let SQL = 'SELECT * FROM seed WHERE id=$1';
@@ -54,7 +68,7 @@ function renderHomePage(req, res) {
 
   client.query(SQL)
     .then(data => {
-      res.render('pages/index', {bananas: data.rows})
+      res.render('pages/index', { bananas: data.rows })
     })
     .catch(err => console.error(err));
 }
