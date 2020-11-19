@@ -105,7 +105,7 @@ Number and name of feature: Lab 12 Feature #4 Refactor Callbacks and Partials
     Estimate of time needed to complete: 1 hour
     Start time: 10:30 p.m.
     Finish time: 11:30 p.m.
-    Actual time needed to complete: 
+    Actual time needed to complete: 1 hour
 
 ---
 
