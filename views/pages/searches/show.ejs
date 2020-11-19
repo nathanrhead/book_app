@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Results</title>
-
+    <%- include('../../layout/head') %>
   </head>
   <body>
+    <header>
+      <%- include('../../layout/header') %>
+    </header>
     <main>
       <ul>
         
@@ -20,7 +22,9 @@
                 <input type="hidden" name="authors" value="<%= listItems.authors %>">
                 <input type="hidden" name="description" value="<%= listItems.description %>">
                 <input type="hidden" name="image" value="<%= listItems.image %>">
-              <button type="submit">Add to bookshelf.</button>
+                <input type="hidden" name="isbn" value="<%= listItems.isbn %>">
+                <input type="hidden" name="category" value="<%= listItems.category %>">
+              <button type="submit">Add to category.</button>
             </form>
         <% }) %>
       </ul>

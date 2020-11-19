@@ -1,26 +1,23 @@
 <!DOCTYPE html>
 <html>
-
   <head>
-    <link rel="stylesheet" href="../styles/base.css" type="text/css">
-
-    <title>The Book Shelf</title>
-
+    <%- include('../layout/head') %>
   </head>
-
   <body>
     <main>
+      <header>
+        <%- include('../layout/header') %>
+      </header>
       <section>
-        <p>There are currently <%= bananas.length %> on your shelf.</p>
+        <p>You have <%= bananas.length %> book(s) on your shelf.</p>
       </section>
       <ul>
-
         <% bananas.forEach(listItems => { %>
             <li class="list-item" data-id="<%= listItems.id %>">
               <img src="<%= listItems.image %>" alt="book jacket">
-              <h4>Title <%= listItems.title %></h4>
-              <p>Author <%= listItems.authors %></p>
-              <a href="/view-details <%= listItems.id %>">View the details of this book.</a>
+              <h4>Title: <%= listItems.title %></h4>
+              <p>Author: <%= listItems.authors %></p>
+              <a href="/view-details/<%= listItems.id %>">View the details of this book.</a>
             </li>
         <% })%>
       </ul>
