@@ -1,9 +1,12 @@
 <section>
   <form action="/update/<%= oneBook.id %>?_method=PUT" method="post">
-    <!-- <input type="text" name="title" value="<%= oneBook.title %>">
-    <input type="text" name="authors" value="<%= oneBook.authors %>"> -->
+    <input type="text" name="title" value="<%= oneBook.title %>">
+    <input type="text" name="authors" value="<%= oneBook.authors %>">
     <textarea name="description"><%= oneBook.description %></textarea>
     <input type="text" name="category" value="<%= oneBook.category %>">
-    <button type="submit">Update</button>
+    <button type="submit">Update the Details of this Book</button>
+  </form>
+  <form action="/delete/<%= oneBook.id %>?_method=DELETE" method="post">
+    <button type="submit">Remove this Book from the Shelf</button>
   </form>
 </section>

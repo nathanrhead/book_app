@@ -13,9 +13,9 @@
         <% searchResults.forEach(listItems => { %>
           <li class="list-item" data-id="<%= listItems.id %>">
             <img src="<%= listItems.image %>" alt="book jacket">
-            <h4>Title <%= listItems.title %></h4>
-            <p>Author <%= listItems.authors %></p>
-            <p>Description <%= listItems.description %></p>
+            <h4>Title: <%= listItems.title %></h4>
+            <p>Author: <%= listItems.authors %></p>
+            <p>Description: <%= listItems.description %></p>
           </li>
             <form action="/add-book" method="post">
                 <input type="hidden" name="title" value="<%= listItems.title %>">
@@ -24,7 +24,7 @@
                 <input type="hidden" name="image" value="<%= listItems.image %>">
                 <input type="hidden" name="isbn" value="<%= listItems.isbn %>">
                 <input type="hidden" name="category" value="<%= listItems.category %>">
-              <button type="submit">Add to category.</button>
+              <button type="submit">Add this book to your bookshelf.</button>
             </form>
         <% }) %>
       </ul>

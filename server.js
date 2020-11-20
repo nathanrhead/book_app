@@ -22,23 +22,30 @@ app.get('/', renderHomePage);
 app.get('/searches/new', showForm);
 app.get('/view-details/:listItems_id', bookDetails);
 app.put('/update/:listItems_id', updateBook);
+app.delete('/delete/:listItems_id', deleteBook);
 
 app.post('/add-book', saveBook);
 app.post('/searches', createSearch);
-// app.post('')
 
 app.get('*', (req, res) => {
   res.render('pages/error', { error: new Error('Page not found.') } )
 }) //set it on fire
 
 function updateBook(req, res) {
-  let { description, category } = req.body;
-  console.log(description, category);
-  let SQL = 'UPDATE seed SET description=$1, category=$2 WHERE id=$3';
-  let values = [description, category, req.params.listItems_id];
+  let { title, authors, description, category } = req.body;
+
+  let SQL = 'UPDATE seed SET title=$1, authors=$2, description=$3, category=$4 WHERE id=$5';
+  let values = [title, authors, description, category, req.params.listItems_id];
 
   client.query(SQL, values)
     .then(res.redirect(`/view-details/${req.params.listItems_id}`))
+    .catch(err => console.error(err));
+}
+
+function deleteBook(req, res) {
+  let SQL = `DELETE FROM seed WHERE id=${req.params.listItems_id}`;
+  client.query(SQL)
+    .then(res.redirect('/'))
     .catch(err => console.error(err));
 }
 
@@ -46,7 +53,7 @@ function bookDetails(req, res) {
   let SQL = 'SELECT * FROM seed WHERE id=$1';
   let values = [req.params.listItems_id];
 
-  return client.query(SQL, values)
+  client.query(SQL, values)
     .then(data => {
       res.render('pages/books/show', { oneBook: data.rows[0] })
     });
@@ -58,7 +65,7 @@ function saveBook(req, res) {
   let SQL = 'INSERT INTO seed (title, authors, description, image, isbn, category) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;';
   let values = [title, authors, description, image, isbn, category];
 
-  return client.query(SQL, values)
+  client.query(SQL, values)
     .then(res.redirect('/'))
     .catch(err => console.error(err));
 }
@@ -75,7 +82,6 @@ function renderHomePage(req, res) {
 
 function showForm(req, res) {
   res.render('pages/searches/new')
-  // .catch(err => console.log(err))
 }
 
 function createSearch(req, res) {
