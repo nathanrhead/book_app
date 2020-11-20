@@ -111,12 +111,27 @@ Number and name of feature: Lab 12 Feature #4 Refactor Callbacks and Partials
 
 Number and name of feature: Lab 13 Feature #1 Update a Book's Details
     Estimate of time needed to complete: 1 hour
-    Start time: 
-    Finish time: 
-    Actual time needed to complete: 
+    Start time: 6:00 p.m.
+    Finish time: 8:00 p.m.
+    Actual time needed to complete: 2 hours
 
 ---
 
+Number and name of feature: Lab 13 Feature #2 Delete a book from the shelf
+    Estimate of time needed to complete: 1 hour
+    Start time: 4:30 p.m.
+    Finish time: 5:30 p.m.
+    Actual time needed to complete: 1 hour
+
+---
+
+Number and name of feature: Lab 13 Feature #2 Delete a book from the shelf
+    Estimate of time needed to complete: 1 hour
+    Start time: 4:30 p.m.
+    Finish time: 5:30 p.m.
+    Actual time needed to complete: 1 hour
+
+---
 
 ## Reflections
 
