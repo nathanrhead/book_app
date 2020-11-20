@@ -19,56 +19,19 @@ app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 
 app.get('/', renderHomePage);
+
 app.get('/searches/new', showForm);
+app.post('/searches', createSearch);
+app.post('/add-book', saveBook);
+
 app.get('/view-details/:listItems_id', bookDetails);
 app.put('/update/:listItems_id', updateBook);
 app.delete('/delete/:listItems_id', deleteBook);
 
-app.post('/add-book', saveBook);
-app.post('/searches', createSearch);
 
 app.get('*', (req, res) => {
   res.render('pages/error', { error: new Error('Page not found.') } )
 }) //set it on fire
-
-function updateBook(req, res) {
-  let { title, authors, description, category } = req.body;
-
-  let SQL = 'UPDATE seed SET title=$1, authors=$2, description=$3, category=$4 WHERE id=$5';
-  let values = [title, authors, description, category, req.params.listItems_id];
-
-  client.query(SQL, values)
-    .then(res.redirect(`/view-details/${req.params.listItems_id}`))
-    .catch(err => console.error(err));
-}
-
-function deleteBook(req, res) {
-  let SQL = `DELETE FROM seed WHERE id=${req.params.listItems_id}`;
-  client.query(SQL)
-    .then(res.redirect('/'))
-    .catch(err => console.error(err));
-}
-
-function bookDetails(req, res) {
-  let SQL = 'SELECT * FROM seed WHERE id=$1';
-  let values = [req.params.listItems_id];
-
-  client.query(SQL, values)
-    .then(data => {
-      res.render('pages/books/show', { oneBook: data.rows[0] })
-    });
-}
-
-function saveBook(req, res) {
-  let { title, authors, description, image, isbn, category } = req.body;
-
-  let SQL = 'INSERT INTO seed (title, authors, description, image, isbn, category) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;';
-  let values = [title, authors, description, image, isbn, category];
-
-  client.query(SQL, values)
-    .then(res.redirect('/'))
-    .catch(err => console.error(err));
-}
 
 function renderHomePage(req, res) {
   let SQL = 'SELECT * FROM seed;';
@@ -92,17 +55,53 @@ function createSearch(req, res) {
 
   superagent.get(url)
     .then(data => {
-      // console.log(data.body.info);
       return data.body.items.map(book => {
-        // console.log(book.volumeInfo);
         return new Book(book.volumeInfo);
       });
     })
     .then(results => {
-      console.log(results);
       res.render('pages/searches/show', { searchResults: results })
     })
     .catch(err => console.log(err));
+}
+
+function saveBook(req, res) {
+  let { title, authors, description, image, isbn, category } = req.body;
+
+  let SQL = 'INSERT INTO seed (title, authors, description, image, isbn, category) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;';
+  let values = [title, authors, description, image, isbn, category];
+
+  client.query(SQL, values)
+    .then(res.redirect('/'))
+    .catch(err => console.error(err));
+}
+
+function bookDetails(req, res) {
+  let SQL = 'SELECT * FROM seed WHERE id=$1';
+  let values = [req.params.listItems_id];
+
+  client.query(SQL, values)
+    .then(data => {
+      res.render('pages/books/show', { oneBook: data.rows[0] })
+    });
+}
+
+function updateBook(req, res) {
+  let { title, authors, description, category } = req.body;
+
+  let SQL = 'UPDATE seed SET title=$1, authors=$2, description=$3, category=$4 WHERE id=$5';
+  let values = [title, authors, description, category, req.params.listItems_id];
+
+  client.query(SQL, values)
+    .then(res.redirect(`/view-details/${req.params.listItems_id}`))
+    .catch(err => console.error(err));
+}
+
+function deleteBook(req, res) {
+  let SQL = `DELETE FROM seed WHERE id=${req.params.listItems_id}`;
+  client.query(SQL)
+    .then(res.redirect('/'))
+    .catch(err => console.error(err));
 }
 
 function Book(info) {
@@ -136,20 +135,7 @@ client.connect()
     });
   })
 client.on('error', err => console.err(err));
-// .catch(err => console.log(err));
 
-
-
-
-
-
-// .then(data => {
-//   let bookCounter = data.rows.reduce((counter, val, idx) => {
-//     return (counter < idx ? counter = idx : counter +1)
-//   }, 0);
-//   console.log('this is the real counter', bookCounter);
-//   res.render('pages/index', {apple: bookCounter});
-// })
 
 
 

@@ -1,7 +1,9 @@
-<img src="<%= oneBook.image %>" alt="book jacket">
-<h4>Title: <%= oneBook.title %></h4>
-<p>Author: <%= oneBook.authors %></p>
-<p>Description: <%= oneBook.description %></p>
-<p>ISBN: <%= oneBook.isbn %></p>
-<p>Bookshelf: <%= oneBook.category %></p>
-
+<section class=book-detail>
+  <img src="<%= oneBook.image %>" alt="book jacket">
+  <h4>Title: <%= oneBook.title %></h4>
+  <p>Author: <%= oneBook.authors %></p>
+  <p>Description: <%= oneBook.description %></p>
+  <p>ISBN: <%= oneBook.isbn %></p>
+  <p>Bookshelf: <%= oneBook.category %></p>
+  <button class="toggle">Edit</button>
+</section>
